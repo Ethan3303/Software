@@ -34,24 +34,27 @@ class iPerson():
      self.myPassword=__password  
      
      
-    
-#print(f"My name is {inperson.name} I am {inperson.age}. I was born a {inperson.gender} and i live at {inperson.address}. To get a hold of me please call {inperson.phoneNumber}. To log into my account pleae use {inperson.myPassword}")
 inperson=iPerson(int(input("what is your age ")), input("what is your name "), input("what is your gender "), input("what is your address "), int(input("what is your number ")),input("what is your password "))
+ 
+print(f"My name is {inperson.name} I am {inperson.age}. I was born a {inperson.gender} and i live at {inperson.address}. To get a hold of me please call {inperson.phoneNumber}. To log into my account pleae use {inperson.myPassword}")
 
+
+attempts=3
 while True:
-   attempts=3
+   
    newpass=input("to reset password please input original password")
    savedpass=(inperson.myPassword)
 
-
-   if savedpass==newpass:
+   if newpass==savedpass:
       print("That is your old password")
       break
 
-   elif savedpass!=newpass:
+   elif newpass!=savedpass:
       print("that is incorrect try again")
-      attempts=-1
+      attempts-=1
+      
 
+   
    if attempts<=0:
       print("you have run out of attempts")
       break
